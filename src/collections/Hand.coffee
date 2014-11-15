@@ -4,11 +4,13 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
-    card = @deck.pop();
-    @add(card) if @minScore() < 21
-    if @scores() > 21
-      alert('You lose')
-      # @trigger('bust',@)
+    if @minScore() < 21
+      card = @deck.pop();
+      @add(card)
+    if @scores() > 21 and !@isDealer
+      answer = confirm('Player Hand You lose :( Play again?')
+      @trigger('playAgain',@) if answer
+    console.log(card)
     card
 
   hasAce: -> @reduce (memo, card) ->
