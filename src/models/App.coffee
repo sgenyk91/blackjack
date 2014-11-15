@@ -13,10 +13,12 @@ class window.App extends Backbone.Model
     # console.log(@get('dealerHand'))
     #setTimeout
     @get('dealerHand').at(0).flip()
+    # debugger
     @get('dealerHand').hit() while @get('dealerHand').scores() < 16
     answer = false
-    if @get('dealerHand').scores() > 21 then answer = confirm('Dealer Plays You win! Play again?') else @compareHands()
-    @restartPlay() if answer
+    setTimeout (-> alert('test')), 0
+    # if @get('dealerHand').scores() > 21 then answer = confirm('Dealer Plays You win! Play again?') else @compareHands()
+    # @restartPlay() if answer
 
   compareHands: ->
     if @get('dealerHand').scores() > @get('playerHand').scores() then answer = confirm('Compare Hands You lose :( Play again?') else answer = confirm('Compare Hands You win! Play again?')

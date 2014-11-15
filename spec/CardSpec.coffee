@@ -6,6 +6,8 @@ describe "deck constructor", ->
     collection = new Deck()
     assert.strictEqual collection.length, 52
 
+
+describe "score calculations", ->
   it "should calculate score appropriately", ->
     playerHand = new Hand([new Card({rank:3, suit:1}),new Card({rank:5, suit:1})])
     assert.strictEqual playerHand.scores(), 8
@@ -16,3 +18,9 @@ describe "deck constructor", ->
 
 
 
+describe "new cards simulation", ->
+    it "new cards should not equal old cards", ->
+        deck = new Deck();
+        firstPlayerHand = deck.firstDealPlayer();
+        secondPlayerHand = deck.dealPlayer(new Hand());
+        assert.notStrictEqual secondPlayerHand, firstPlayerHand
