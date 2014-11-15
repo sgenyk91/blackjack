@@ -1,7 +1,7 @@
 class window.CardView extends Backbone.View
   className: 'card'
 
-  template: _.template '<img width="120px" height="167px" src="img/cards/<%=rankName%>-<%=suitName%>.png"/>'
+  template: _.template '<img width="150" height="225" src="img/cards/<%=suitName%>/<%=rankName%>.png"/>'
   #template: _.template '<%=rankName%> of <%=suitName%>'
   initialize: ->
     @render()
@@ -12,3 +12,4 @@ class window.CardView extends Backbone.View
     # @el.removeClass 'card' if @model.get
     @$el.addClass 'covered' unless @model.get 'revealed'
 
+1-Clubs.png
