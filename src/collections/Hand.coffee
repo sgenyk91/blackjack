@@ -7,10 +7,12 @@ class window.Hand extends Backbone.Collection
     if @minScore() < 21
       card = @deck.pop();
       @add(card)
+    console.log(@scores())
     if @scores() > 21 and !@isDealer
-      answer = confirm('Player Hand You lose :( Play again?')
-      @trigger('playAgain',@) if answer
-    console.log(card)
+      console.log('bust triggered')
+      console.log(@)
+      @trigger('handDisplay')
+      @trigger('gameOverEvent', @)
     card
 
   hasAce: -> @reduce (memo, card) ->

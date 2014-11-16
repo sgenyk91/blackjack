@@ -11,5 +11,3 @@ class window.CardView extends Backbone.View
     @$el.html @template @model.attributes
     # @el.removeClass 'card' if @model.get
     @$el.addClass 'covered' unless @model.get 'revealed'
-
-1-Clubs.png
